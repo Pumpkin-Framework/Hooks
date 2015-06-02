@@ -17,6 +17,8 @@ buildscript {
 
 apply plugin: "forge"
 
+ext.minecraftPlugin = plugins.getPlugin('forge')
+
 group = "nl.jk_5.pumpkin"
 version = "1.0.0-SNAPSHOT"
 
@@ -25,6 +27,14 @@ repositories {
     maven {
         name "sponge"
         url "http://repo.spongepowered.org/maven/"
+    }
+    maven {
+        name "forge"
+        url "http://files.minecraftforge.net/maven/"
+    }
+    maven {
+        name = 'sonatype-snapshots'
+        url = 'https://oss.sonatype.org/content/repositories/snapshots'
     }
 }
 
@@ -51,5 +61,5 @@ jar.manifest {
     attributes "Implementation-Version": project.version
     attributes "Implementation-Title": "nl.jk_5.pumpkin.hooks"
     attributes "Implementation-Vendor": "jk-5"
+    attributes "FMLCorePlugin": "nl.jk_5.pumpkin.hooks.impl.PumpkinHooksCoremod"
 }
-
